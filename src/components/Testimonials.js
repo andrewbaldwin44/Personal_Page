@@ -79,13 +79,15 @@ function Testimonials({ testimonials }) {
   return (
     <TestimonialsSection id="testimonials-section">
       <TestimonialsHead>
-        <img src="assets/images/exercism.png" alt="Exercism logo" class="exercism-logo"/>
+        <img src="assets/images/exercism.png" alt="Exercism logo"/>
         <h2>Exercism Testimonials</h2>
       </TestimonialsHead>
       <TestimonialsBody>
         {testimonials.map(testimonial => {
           return (
-            <TestimonialItem>
+            <TestimonialItem
+              key={`${testimonial.user}${testimonial.exercise.toLowerCase().replace(' in ', '')}`}
+            >
               <FeedbackItem>
                 <i aria-hidden="true" className="fas fa-quote-left"></i>
                 <span>{testimonial.feedback}</span>

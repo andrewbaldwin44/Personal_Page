@@ -41,10 +41,10 @@ function NavBar() {
           <h2>Full Stack Web Developper</h2>
       </a>
       <section>
-        <a class="link" href="#welcome-section">About</a>
-        <a class="link" href="#projects-section">Projects</a>
-        <a class="link" href="#testimonials-section">Testimonials</a>
-        <a class="link" href="#contact-section">Contact</a>
+        <a href="#welcome-section">About</a>
+        <a href="#projects-section">Projects</a>
+        <a href="#testimonials-section">Testimonials</a>
+        <a href="#contact-section">Contact</a>
       </section>
     </Nav>
   )

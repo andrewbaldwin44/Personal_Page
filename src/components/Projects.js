@@ -63,8 +63,12 @@ function Projects({ projects }) {
       <ProjectsContainer>
         {projects.map(project => {
           return (
-            <TileItem>
-              <a href={project.link} alt={`${project.title} Link`} target="_blank">
+            <TileItem key={project.title.toLowerCase().replace(' ', '')}>
+              <a
+                href={project.link} alt={`${project.title} Link`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <TileImage src={project.img} alt={`${project.title} thumb`}/>
                 <TitleBox>
                   <span>{project.title}</span>

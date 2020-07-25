@@ -35,15 +35,30 @@ function Contact() {
     <ContactSection id="contact-section">
       <h3>Let's Work Together!</h3>
         <ContactInfo>
-          <a alt="Github link" href="https://github.com/andrewbaldwin44" target="_blank">
+          <a
+            alt="Github link"
+            href="https://github.com/andrewbaldwin44"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-github"></i>
             Github
           </a>
-          <a alt="Linked-in link" href="https://www.linkedin.com/in/andrew-baldwin-47b7011b2/" target="_blank">
+          <a
+            alt="Linked-in link"
+            href="https://www.linkedin.com/in/andrew-baldwin-47b7011b2/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-linkedin"></i>
             Linked In
           </a>
-          <a alt="Email link" href="mailto:andrew.baldwin44@protonmail.com" target="_blank">
+          <a
+            alt="Email link"
+            href="mailto:andrew.baldwin44@protonmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fas fa-envelope"></i>
             Email
           </a>
