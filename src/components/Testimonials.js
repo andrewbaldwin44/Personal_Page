@@ -1,5 +1,58 @@
 import React from 'react';
 import styled from 'styled-components';
+import useQuery from '../hooks/useQuery.hook';
+import paginate from '../paginateModel';
+import PaginatedButtons from './PaginatedButtons';
+
+const pageMinimum = 1;
+const limitMinimum = 9;
+
+function getQueryValue(query, queryItem, minimumValue) {
+  const queryValue = query.get(queryItem);
+  return queryValue !== undefined && queryValue > 0
+    ? Number(queryValue)
+    : minimumValue;
+}
+
+function Testimonials({ testimonials }) {
+  const query = useQuery();
+  const page = getQueryValue(query, "page", pageMinimum);
+  const limit = getQueryValue(query, "limit", limitMinimum);
+
+  const paginatedResults = paginate(page, limit, testimonials);
+  const paginatedTestimonial = paginatedResults.results;
+
+  return (
+    <TestimonialsSection id="testimonials-section">
+      <TestimonialsHead>
+        <img src="assets/images/exercism.png" alt="Exercism logo"/>
+        <h2>Exercism Testimonials</h2>
+      </TestimonialsHead>
+      <TestimonialsBody>
+        {paginatedTestimonial.map(testimonial => {
+          const normalizedExerciseName = testimonial.exercise.toLowerCase().replace(' in ', '');
+          const testimonialKey = `${testimonial.user}${normalizedExerciseName}`;
+
+          return (
+            <TestimonialItem
+              key={testimonialKey}
+            >
+              <FeedbackItem>
+                <i aria-hidden="true" className="fas fa-quote-left"></i>
+                <span>{testimonial.feedback}</span>
+              </FeedbackItem>
+              <AboutItem>
+                <UserInfo>- {testimonial.user}</UserInfo>
+                <span> on </span>
+                <ExerciseInfo>{testimonial.exercise}</ExerciseInfo>
+              </AboutItem>
+            </TestimonialItem>
+          )
+        })}
+      </TestimonialsBody>
+    </TestimonialsSection>
+  )
+}
 
 const TestimonialsSection = styled.section`
   font-family: 'Linotte', sans-serif;
@@ -74,35 +127,5 @@ const ExerciseInfo = styled.p`
   color: #0097a7;
   font-weight: bold;
 `;
-
-function Testimonials({ testimonials }) {
-  return (
-    <TestimonialsSection id="testimonials-section">
-      <TestimonialsHead>
-        <img src="assets/images/exercism.png" alt="Exercism logo"/>
-        <h2>Exercism Testimonials</h2>
-      </TestimonialsHead>
-      <TestimonialsBody>
-        {testimonials.map(testimonial => {
-          return (
-            <TestimonialItem
-              key={`${testimonial.user}${testimonial.exercise.toLowerCase().replace(' in ', '')}`}
-            >
-              <FeedbackItem>
-                <i aria-hidden="true" className="fas fa-quote-left"></i>
-                <span>{testimonial.feedback}</span>
-              </FeedbackItem>
-              <AboutItem>
-                <UserInfo>- {testimonial.user}</UserInfo>
-                <span> on </span>
-                <ExerciseInfo>{testimonial.exercise}</ExerciseInfo>
-              </AboutItem>
-            </TestimonialItem>
-          )
-        })}
-      </TestimonialsBody>
-    </TestimonialsSection>
-  )
-}
 
 export default Testimonials;

@@ -8,6 +8,6 @@ import { testimonials } from'./data/testimonials';
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  <App projects={projects} testimonials={testimonials} />, 
+  <App projects={projects} testimonials={testimonials} />,
   rootElement
 );

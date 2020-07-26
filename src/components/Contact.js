@@ -1,35 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ContactSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  height: calc(100vh - var(--navbar-height));
-  font-size: 2.2rem;
-
-  h3 {
-    font-style: italic;
-  }
-`;
-
-const ContactInfo = styled.div`
-  display: flex;
-  width: 60%;
-  align-items: center;
-  justify-content: space-around;
-
-  a {
-    padding-left
-  }
-
-  .fa-github, .fa-envelope, .fa-linkedin {
-    margin-right: 10px;
-  }
-`;
-
 function Contact() {
   return (
     <ContactSection id="contact-section">
@@ -68,3 +39,32 @@ function Contact() {
 }
 
 export default Contact;
+
+const ContactSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: calc(100vh - var(--navbar-height));
+  font-size: 2.2rem;
+
+  h3 {
+    font-style: italic;
+  }
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  width: 60%;
+  align-items: center;
+  justify-content: space-around;
+
+  a {
+    padding-left
+  }
+
+  .fa-github, .fa-envelope, .fa-linkedin {
+    margin-right: 10px;
+  }
+`;

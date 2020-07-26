@@ -1,6 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 
+function Projects({ projects }) {
+  return (
+    <ProjectsSection id="projects-section">
+      <h2>Here are Some of my Projects!</h2>
+      <ProjectsContainer>
+        {projects.map(project => {
+          const normalizedProjectTitle = project.title.toLowerCase().replace(' ', '');
+
+          return (
+            <TileItem key={normalizedProjectTitle}>
+              <a
+                href={project.link}
+                alt={`${project.title} Link`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TileImage src={project.img} alt={`${project.title} thumb`}/>
+                <TitleBox>
+                  <span>{project.title}</span>
+                </TitleBox>
+              </a>
+            </TileItem>
+          )
+        })}
+      </ProjectsContainer>
+    </ProjectsSection>
+  )
+}
+
 const ProjectsSection = styled.section`
   left: 0;
   width: 100vw;
@@ -56,30 +85,5 @@ const TitleBox = styled.div`
   background-color: var(--blackBG);
 `;
 
-function Projects({ projects }) {
-  return (
-    <ProjectsSection id="projects-section">
-      <h2>Here are Some of my Projects!</h2>
-      <ProjectsContainer>
-        {projects.map(project => {
-          return (
-            <TileItem key={project.title.toLowerCase().replace(' ', '')}>
-              <a
-                href={project.link} alt={`${project.title} Link`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TileImage src={project.img} alt={`${project.title} thumb`}/>
-                <TitleBox>
-                  <span>{project.title}</span>
-                </TitleBox>
-              </a>
-            </TileItem>
-          )
-        })}
-      </ProjectsContainer>
-    </ProjectsSection>
-  )
-}
 
 export default Projects;
