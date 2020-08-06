@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import useQuery from '../hooks/useQuery.hook';
-import paginate from '../paginateModel';
-import PaginatedButtons from './PaginatedButtons';
 
-const pageMinimum = 1;
-const limitMinimum = 9;
+import { paginate, countPages } from '../utils/paginateModel';
+import Pagination from '@material-ui/lab/Pagination';
 
-function getQueryValue(query, queryItem, minimumValue) {
-  const queryValue = query.get(queryItem);
-  return queryValue !== undefined && queryValue > 0
-    ? Number(queryValue)
-    : minimumValue;
-}
+const initialPage = 1;
+const limit = 9;
 
 function Testimonials({ testimonials }) {
-  const query = useQuery();
-  const page = getQueryValue(query, "page", pageMinimum);
-  const limit = getQueryValue(query, "limit", limitMinimum);
+  const getTestimonials = page => {
+    return paginate(page, limit, testimonials);
+  }
 
-  const paginatedResults = paginate(page, limit, testimonials);
-  const paginatedTestimonial = paginatedResults.results;
+  const [paginatedTestimonials, setPaginatedTestimonials] = useState(
+    getTestimonials(initialPage)
+  );
+
+  const handleNavigation = (_, pageNumber) => {
+    window.location.href = '/#testimonials-section';
+    setPaginatedTestimonials(getTestimonials(pageNumber));
+  }
+
+  const pagesCount = countPages(testimonials, limit);
 
   return (
     <TestimonialsSection id="testimonials-section">
@@ -29,7 +30,7 @@ function Testimonials({ testimonials }) {
         <h2>Exercism Testimonials</h2>
       </TestimonialsHead>
       <TestimonialsBody>
-        {paginatedTestimonial.map(testimonial => {
+        {paginatedTestimonials.map(testimonial => {
           const normalizedExerciseName = testimonial.exercise.toLowerCase().replace(' in ', '');
           const testimonialKey = `${testimonial.user}${normalizedExerciseName}`;
 
@@ -50,6 +51,16 @@ function Testimonials({ testimonials }) {
           )
         })}
       </TestimonialsBody>
+      <StyledPagination
+        count={pagesCount}
+        showFirstButton
+        showLastButton
+        siblingCount={2}
+        size="large"
+        shape="rounded"
+        color="secondary"
+        onChange={handleNavigation}
+      />
     </TestimonialsSection>
   )
 }
@@ -126,6 +137,13 @@ const ExerciseInfo = styled.p`
   display: inline-block;
   color: #0097a7;
   font-weight: bold;
+`;
+
+const StyledPagination = styled(Pagination)`
+  & button, li, div {
+    font-size: 20px;
+    padding: 0 10px;
+  }
 `;
 
 export default Testimonials;
