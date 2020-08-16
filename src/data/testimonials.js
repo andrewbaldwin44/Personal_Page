@@ -1,6 +1,3 @@
-const exercises = ['Two Fer', 'Resistor Color', 'Resistor Color Duo', 'Gigasecond'];
-const languages = ['Javascript'];
-
 export const testimonials = [
   {
     feedback: 'awesome mentor! took his/her time to parse my code and provide HELPFULL feedback and input.',

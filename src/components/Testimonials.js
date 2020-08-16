@@ -66,6 +66,7 @@ function Testimonials({ testimonials }) {
 }
 
 const TestimonialsSection = styled.section`
+  position: relative;
   font-family: 'Linotte', sans-serif;
   font-size: 20px;
   display: flex;
@@ -140,6 +141,9 @@ const ExerciseInfo = styled.p`
 `;
 
 const StyledPagination = styled(Pagination)`
+  position: absolute;
+  bottom: 20px;
+
   & button, li, div {
     font-size: 20px;
     padding: 0 10px;
