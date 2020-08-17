@@ -1,6 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
+function Welcome() {
+  return (
+    <WelcomeSection id="welcome-section">
+      <h2>Welcome!</h2>
+      <p>
+        I create the websites you need!
+      </p>
+      <a href="#projects-section">
+        <i className="fas fa-chevron-down"></i>
+      </a>
+    </WelcomeSection>
+  )
+}
+
 const WelcomeSection = styled.section`
   margin-top: var(--navbar-height);
   height: calc(100vh - var(--navbar-height));
@@ -50,20 +64,6 @@ const WelcomeSection = styled.section`
     75% {opacity: 0}
     100% {opacity: 1}
   }
-`
-
-function Welcome() {
-  return (
-    <WelcomeSection id="welcome-section">
-      <h2>Welcome!</h2>
-      <p>
-        I create the websites you need!
-      </p>
-      <a href="#projects-section">
-        <i className="fas fa-chevron-down"></i>
-      </a>
-    </WelcomeSection>
-  )
-}
+`;
 
 export default Welcome;
