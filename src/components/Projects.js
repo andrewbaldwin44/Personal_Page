@@ -2,6 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Slider from "react-slick";
+import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
+
+function Arrow({ className, style, onClick, icon }) {
+  return (
+    <Chevron
+      style={{ ...style }}
+      onClick={onClick}
+    >
+      {icon}
+    </Chevron>
+  );
+}
 
 const settings = {
   dots: true,
@@ -10,6 +23,8 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   initialSlide: 0,
+  nextArrow: <Arrow icon={<IoIosArrowForward />} />,
+  prevArrow: <Arrow icon={<IoIosArrowBack />} />,
   responsive: [
     {
       breakpoint: 1024,
@@ -97,6 +112,11 @@ const StyledSlider = styled(Slider)`
   width: 90vw;
   height: 60%;
   bottom: 10%;
+`;
+
+const Chevron = styled.span`
+  cursor: pointer;
+  font-size: 50px;
 `;
 
 const TileItem = styled.div`
