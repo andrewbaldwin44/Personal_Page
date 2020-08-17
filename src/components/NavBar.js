@@ -1,11 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { PAGE_DIMENSIONS } from '../constants';
+const { NAVBAR_HEIGHT } = PAGE_DIMENSIONS;
+
+function NavBar() {
+  return (
+    <Nav>
+      <a href="#welcome-section">
+          <h1>Andrew Baldwin</h1>
+          <h2>Full Stack Web Developper</h2>
+      </a>
+      <section>
+        <a href="#welcome-section">About</a>
+        <a href="#projects-section">Projects</a>
+        <a href="#testimonials-section">Testimonials</a>
+        <a href="#contact-section">Contact</a>
+      </section>
+    </Nav>
+  )
+}
+
 const Nav = styled.nav`
   position: fixed;
   z-index: 1;
   width: 100%;
-  height: var(--navbar-height);
+  height: ${NAVBAR_HEIGHT}px;
   left: 0px;
   top: 0px;
   background-color: var(--redBG);
@@ -31,23 +51,6 @@ const Nav = styled.nav`
   a {
     padding-right: 40px;
   }
-`
-
-function NavBar() {
-  return (
-    <Nav>
-      <a href="#welcome-section">
-          <h1>Andrew Baldwin</h1>
-          <h2>Full Stack Web Developper</h2>
-      </a>
-      <section>
-        <a href="#welcome-section">About</a>
-        <a href="#projects-section">Projects</a>
-        <a href="#testimonials-section">Testimonials</a>
-        <a href="#contact-section">Contact</a>
-      </section>
-    </Nav>
-  )
-}
+`;
 
 export default NavBar;

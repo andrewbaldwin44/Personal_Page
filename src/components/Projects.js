@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import Carousel from './Carousel';
 
 import { IoIosArrowDown } from 'react-icons/io';
 
+import { ScrollHeightContext } from './ScrollHeightContext';
+
 function Projects({ projects }) {
+  const { projectsSection } = useContext(ScrollHeightContext);
+
   return (
-    <ProjectsSection id="projects-section">
+    <ProjectsSection id="projects-section" ref={projectsSection}>
       <h2>Here are Some of my Projects!</h2>
       <Carousel>
         {projects.map(project => {

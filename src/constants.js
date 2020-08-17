@@ -1,0 +1,3 @@
+export const PAGE_DIMENSIONS = {
+  NAVBAR_HEIGHT: 100,
+}

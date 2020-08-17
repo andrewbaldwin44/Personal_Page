@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import { ScrollHeightContext } from './ScrollHeightContext';
+
 function Contact() {
+  const { contactSection } = useContext(ScrollHeightContext);
+
   return (
-    <ContactSection id="contact-section">
+    <ContactSection id="contact-section" ref={contactSection}>
       <h3>Let's Work Together!</h3>
         <ContactInfo>
           <a

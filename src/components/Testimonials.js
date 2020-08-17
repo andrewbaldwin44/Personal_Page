@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
 import { paginate, countPages } from '../utils/paginateModel';
 import Pagination from '@material-ui/lab/Pagination';
 
+import { ScrollHeightContext } from './ScrollHeightContext';
+
 const initialPage = 1;
 const limit = 9;
 
 function Testimonials({ testimonials }) {
+  const { testimonialsSection } = useContext(ScrollHeightContext);
+
   const getTestimonials = page => {
     return paginate(page, limit, testimonials);
   }
@@ -24,7 +28,7 @@ function Testimonials({ testimonials }) {
   const pagesCount = countPages(testimonials, limit);
 
   return (
-    <TestimonialsSection id="testimonials-section">
+    <TestimonialsSection id="testimonials-section" ref={testimonialsSection}>
       <TestimonialsHead>
         <img src="assets/images/exercism.png" alt="Exercism logo"/>
         <h2>Exercism Testimonials</h2>
