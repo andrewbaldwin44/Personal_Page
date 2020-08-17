@@ -4,15 +4,16 @@ import styled from 'styled-components';
 import Slider from "react-slick";
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io';
 
 function Arrow({ className, style, onClick, icon }) {
   return (
-    <Chevron
+    <SideScrollChevron
       style={{ ...style }}
       onClick={onClick}
     >
       {icon}
-    </Chevron>
+    </SideScrollChevron>
   );
 }
 
@@ -82,6 +83,9 @@ function Projects({ projects }) {
           )
         })}
       </StyledSlider>
+      <a href='#testimonials-section'>
+        <ChevronDown />
+      </a>
     </ProjectsSection>
   )
 }
@@ -109,12 +113,12 @@ const StyledSlider = styled(Slider)`
   align-items: center;
   left: 50%;
   transform: translateX(-50%);
-  width: 90vw;
+  width: 95vw;
   height: 60%;
-  bottom: 10%;
+  bottom: 12%;
 `;
 
-const Chevron = styled.span`
+const SideScrollChevron = styled.span`
   cursor: pointer;
   font-size: 50px;
 `;
@@ -131,6 +135,11 @@ const TileItem = styled.div`
   margin-right: 2vw;
   margin-left: 2vw;
   cursor: pointer;
+  transition: transform 0.8s;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 `;
 
 const TileImage = styled.img`
@@ -146,6 +155,15 @@ const TitleBox = styled.div`
   justify-content: center;
   height: 110px;
   background-color: var(--blackBG);
+`;
+
+const ChevronDown = styled(IoIosArrowDown)`
+  position: absolute;
+  font-size: 2em;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
 `;
 
 
