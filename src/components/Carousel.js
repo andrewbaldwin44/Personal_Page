@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Slider from "react-slick";
@@ -7,13 +7,11 @@ import { IoIosArrowBack } from 'react-icons/io';
 
 const settings = {
   dots: true,
-  infinite: true,
+  infinite: false,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
   initialSlide: 0,
-  nextArrow: <Arrow icon={<IoIosArrowForward />} />,
-  prevArrow: <Arrow icon={<IoIosArrowBack />} />,
   responsive: [
     {
       breakpoint: 1024,
@@ -46,10 +44,12 @@ const settings = {
   ]
 };
 
-function Arrow({ className, style, onClick, icon }) {
+function Arrow({ onClick, icon, currentSlide, direction, lastIndex }) {
   return (
     <SideScrollChevron
-      style={{ ...style }}
+      currentSlide={currentSlide}
+      direction={direction}
+      lastIndex={lastIndex}
       onClick={onClick}
     >
       {icon}
@@ -58,8 +58,28 @@ function Arrow({ className, style, onClick, icon }) {
 }
 
 function Carousel({ children }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
-    <StyledSlider {...settings}>
+    <StyledSlider
+      {...settings}
+      nextArrow={
+        <Arrow
+          icon={<IoIosArrowForward />}
+          currentSlide={currentSlide}
+          lastIndex={Math.floor(children.length / 2)}
+          direction={'next'}
+        />
+      }
+      prevArrow={
+        <Arrow
+          icon={<IoIosArrowBack />}
+          currentSlide={currentSlide}
+          direction={'previous'}
+        />
+      }
+      afterChange={index => setCurrentSlide(index)}
+    >
       {children}
     </StyledSlider>
   )
@@ -79,6 +99,11 @@ const StyledSlider = styled(Slider)`
 const SideScrollChevron = styled.span`
   cursor: pointer;
   font-size: 50px;
+  opacity: ${({ currentSlide, direction, lastIndex }) => {
+    if (direction === 'previous' && currentSlide === 0) return 0.4;
+    else if (direction === 'next' && currentSlide === lastIndex) return 0.4;
+    else return 1;
+  }};
 `;
 
 export default Carousel;
