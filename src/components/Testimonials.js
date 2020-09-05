@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { IoIosArrowDown } from 'react-icons/io';
@@ -8,19 +8,33 @@ import Pagination from '@material-ui/lab/Pagination';
 
 import { ScrollHeightContext } from './ScrollHeightContext';
 
+import { getViewType } from '../utils/index';
+import { TESTIMONIAL_BREAKPOINTS } from '../constants';
+
 const initialPage = 1;
-const limit = 9;
 
 function Testimonials({ testimonials }) {
   const { testimonialsSection } = useContext(ScrollHeightContext);
+
+  const [paginatedTestimonials, setPaginatedTestimonials] = useState([]);
+  const [limit, setLimit] = useState(0);
+
+  const determineResultLimit = () => {
+    const viewType = getViewType();
+    const newLimit = TESTIMONIAL_BREAKPOINTS[viewType];
+
+    setLimit(newLimit);
+  }
 
   const getTestimonials = page => {
     return paginate(page, limit, testimonials);
   }
 
-  const [paginatedTestimonials, setPaginatedTestimonials] = useState(
-    getTestimonials(initialPage)
-  );
+  useEffect(() => determineResultLimit(), []);
+  useEffect(() =>
+    setPaginatedTestimonials(getTestimonials(initialPage)),
+    // eslint-disable-next-line
+  [limit, window.innerWidth]);
 
   const handleNavigation = (_, pageNumber) => {
     window.location.href = '/#testimonials-section';
@@ -48,6 +62,7 @@ function Testimonials({ testimonials }) {
           return (
             <TestimonialItem
               key={testimonialKey}
+              limit={limit}
             >
               <FeedbackItem>
                 <i aria-hidden="true" className="fas fa-quote-left"></i>
@@ -81,15 +96,16 @@ function Testimonials({ testimonials }) {
 
 const TestimonialsSection = styled.section`
   position: relative;
-  font-family: 'Linotte', sans-serif;
-  font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Linotte', sans-serif;
+  font-size: 20px;
   text-shadow: none;
   color: black;
   height: calc(100vh - var(--navbar-height));
   width: 100%;
+  padding: 20px;
   background-color: white;
 `;
 
@@ -97,7 +113,7 @@ const TestimonialsHead = styled.a`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  text-align: center;
   color: black;
 
   &:hover {
@@ -107,6 +123,7 @@ const TestimonialsHead = styled.a`
   img {
     height: auto;
     width: 70px;
+    min-width: 70px;
     padding-right: 20px;
   }
 
@@ -119,17 +136,19 @@ const TestimonialsHead = styled.a`
 
 const TestimonialsBody = styled.div`
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 80px;
+  height: 80%;
+  margin-top: 70px;
 `;
 
 const TestimonialItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: calc((100% / 3) - 140px);
-  margin: 30px 70px;
+  width: calc((100% / ${({ limit }) => (Math.floor(limit / 3))}) - 140px);
+  margin: 0 70px;
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
 `;
@@ -161,11 +180,27 @@ const ExerciseInfo = styled.p`
 
 const StyledPagination = styled(Pagination)`
   position: absolute;
+  left: 50%;
   bottom: 60px;
+  transform: translateX(-50%);
 
-  & button, li, div {
+  button, li, div {
     font-size: 20px;
-    padding: 0 10px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 800px) {
+    left: -2px;
+    margin: 0;
+    transform: translateX(0%);
+
+    button, li, div {
+      font-size: 16px;
+      height: 20px;
+      width: 2px;
+      padding: 0;
+      margin-right: 25px;
+    }
   }
 `;
 
