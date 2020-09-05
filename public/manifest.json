@@ -1,0 +1,13 @@
+{
+  "name": "Andrew Baldwin",
+  "icons": [
+    {
+      "src": "avatar.svg",
+      "type": "image/x-svg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
