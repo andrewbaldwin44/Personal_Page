@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { IoIosArrowDown } from 'react-icons/io';
+
 function Welcome() {
   return (
     <WelcomeSection id="welcome-section">
@@ -8,8 +10,8 @@ function Welcome() {
       <p>
         I create the websites you need!
       </p>
-      <a href="#projects-section">
-        <i className="fas fa-chevron-down"></i>
+      <a href='#projects-section'>
+        <ChevronDown />
       </a>
     </WelcomeSection>
   )
@@ -41,12 +43,10 @@ const WelcomeSection = styled.section`
     font-size: 3.5rem;
     bottom: 20px;
     cursor: pointer;
-    animation-name: buttonFadeIn;
-    animation-duration: 4s;
-    transition: 1.2s;
+
   }
   .fa-chevron-down:hover {
-    transform: scale(1.1);
+
   }
 
   @keyframes welcomeFadeIn {
@@ -63,6 +63,20 @@ const WelcomeSection = styled.section`
     0% {opacity: 0}
     75% {opacity: 0}
     100% {opacity: 1}
+  }
+`;
+
+const ChevronDown = styled(IoIosArrowDown)`
+  position: absolute;
+  font-size: 2.4em;
+  bottom: 20px;
+  animation-name: buttonFadeIn;
+  animation-duration: 4s;
+  transition: 1.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.04);
   }
 `;
 

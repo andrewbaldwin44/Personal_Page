@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
+import { IoIosArrowDown } from 'react-icons/io';
+
 import { paginate, countPages } from '../utils/paginateModel';
 import Pagination from '@material-ui/lab/Pagination';
 
@@ -65,6 +67,9 @@ function Testimonials({ testimonials }) {
         color="secondary"
         onChange={handleNavigation}
       />
+    <a href='#contact-section'>
+        <ChevronDown />
+      </a>
     </TestimonialsSection>
   )
 }
@@ -146,11 +151,24 @@ const ExerciseInfo = styled.p`
 
 const StyledPagination = styled(Pagination)`
   position: absolute;
-  bottom: 20px;
+  bottom: 60px;
 
   & button, li, div {
     font-size: 20px;
     padding: 0 10px;
+  }
+`;
+
+const ChevronDown = styled(IoIosArrowDown)`
+  position: absolute;
+  font-size: 1.8em;
+  bottom: 10px;
+  transition: 1.2s;
+  cursor: pointer;
+  color: black;
+
+  &:hover {
+    transform: scale(1.04);
   }
 `;
 

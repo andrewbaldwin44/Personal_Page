@@ -37,7 +37,7 @@ const Nav = styled.nav`
   left: 0px;
   top: 0px;
   background-color: var(--redBG);
-  box-shadow: 0 2px 5px var(--shadow);
+  box-shadow: 0 2px 5px var(--blackBG);
   padding: 0 40px;
 
   h1, h2 {
