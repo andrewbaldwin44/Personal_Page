@@ -31,7 +31,12 @@ function Testimonials({ testimonials }) {
 
   return (
     <TestimonialsSection id="testimonials-section" ref={testimonialsSection}>
-      <TestimonialsHead>
+      <TestimonialsHead
+        href='https://exercism.io/about'
+        target='_blank'
+        alt='Exercism website'
+        rel='noopener noreferrer'
+      >
         <img src="assets/images/exercism.png" alt="Exercism logo"/>
         <h2>Exercism Testimonials</h2>
       </TestimonialsHead>
@@ -88,11 +93,16 @@ const TestimonialsSection = styled.section`
   background-color: white;
 `;
 
-const TestimonialsHead = styled.div`
+const TestimonialsHead = styled.a`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 40px;
+  color: black;
+
+  &:hover {
+    text-shadow: none;
+  }
 
   img {
     height: auto;
