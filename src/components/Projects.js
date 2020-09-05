@@ -12,7 +12,7 @@ function Projects({ projects }) {
 
   return (
     <ProjectsSection id="projects-section" ref={projectsSection}>
-      <h2>Here are Some of my Projects!</h2>
+      <h2>My Projects!</h2>
       <Carousel>
         {projects.map(project => {
           const normalizedProjectTitle = project.title.toLowerCase().replace(' ', '');
@@ -46,13 +46,12 @@ const ProjectsSection = styled.section`
   width: 100vw;
   height: calc(100vh - var(--navbar-height));
   background-color: var(--orangeBG);
-  padding: 0 20px;
+  padding: 20px;
 
   h2 {
     text-decoration: underline;
     text-align: center;
     align-self: center;
-    padding-top: 60px;
     margin-bottom: 80px;
     font-size: 1.5em;
   }
@@ -66,11 +65,11 @@ const TileItem = styled.div`
   border-radius: 10px;
   height: 100%;
   max-width: 90%;
+  margin-left: 1.6vw;
   margin-bottom: 100px;
-  margin-right: 2vw;
-  margin-left: 2vw;
   cursor: pointer;
   transition: transform 0.8s;
+  border: 5px solid blue;
 
   &:hover {
     transform: scale(1.01);

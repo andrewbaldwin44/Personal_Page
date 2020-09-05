@@ -89,11 +89,10 @@ const StyledSlider = styled(Slider)`
   position: absolute;
   display: flex;
   align-items: center;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95vw;
+  justify-content: center;
+  width: 97%;
   height: 60%;
-  bottom: 12%;
+  bottom: 90px;
 `;
 
 const SideScrollChevron = styled.span`
