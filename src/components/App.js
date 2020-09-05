@@ -42,7 +42,7 @@ function App({ projects, testimonials }) {
     <Router>
       <GlobalStyles />
       <NavBar />
-      {scrollHeight > 0 && (
+      {scrollHeight > NAVBAR_HEIGHT && (
         <StyledUpIcon
           onClick={handleScrollUp}
         />

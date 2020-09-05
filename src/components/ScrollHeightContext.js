@@ -6,7 +6,7 @@ const { NAVBAR_HEIGHT } = PAGE_DIMENSIONS;
 export const ScrollHeightContext = createContext(null);
 
 export function ScrollHeightProvider({ children }) {
-  const [scrollHeight, setScrollHeight] = useState(0);
+  const [scrollHeight, setScrollHeight] = useState(NAVBAR_HEIGHT);
 
   const projectsSection = createRef();
   const testimonialsSection = createRef();
