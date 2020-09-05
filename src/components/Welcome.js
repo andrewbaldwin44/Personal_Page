@@ -25,28 +25,19 @@ const WelcomeSection = styled.section`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  padding: 0 20px;
+  text-align: center;
 
   h2 {
-    font-size: 3rem;
+    font-size: 2em;
     animation-name: welcomeFadeIn;
     animation-duration: 4s;
   }
 
   p {
-    font-size: 2.5rem;
+    font-size: 1.6em;
     animation-name: introFadeIn;
     animation-duration: 4s;
-  }
-
-  .fa-chevron-down {
-    position: absolute;
-    font-size: 3.5rem;
-    bottom: 20px;
-    cursor: pointer;
-
-  }
-  .fa-chevron-down:hover {
-
   }
 
   @keyframes welcomeFadeIn {
@@ -70,13 +61,15 @@ const ChevronDown = styled(IoIosArrowDown)`
   position: absolute;
   font-size: 2.4em;
   bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   animation-name: buttonFadeIn;
   animation-duration: 4s;
   transition: 1.2s;
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.04);
+    transform: scale(1.04) translateX(-50%);
   }
 `;
 
