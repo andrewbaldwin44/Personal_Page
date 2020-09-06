@@ -69,7 +69,6 @@ const TileItem = styled.div`
   margin-bottom: 100px;
   cursor: pointer;
   transition: transform 0.8s;
-  border: 5px solid blue;
 
   &:hover {
     transform: scale(1.01);

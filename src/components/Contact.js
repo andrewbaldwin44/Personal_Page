@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
 import { ScrollHeightContext } from './ScrollHeightContext';
 
 function Contact() {
@@ -16,16 +18,16 @@ function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-github"></i>
+            <FaGithub />
             Github
           </a>
           <a
             alt="Linked-in link"
-            href="https://www.linkedin.com/in/andrew-baldwin-47b7011b2/"
+            href="https://www.linkedin.com/in/andrew-baldwin44/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-linkedin"></i>
+            <FaLinkedin />
             Linked In
           </a>
           <a
@@ -34,7 +36,7 @@ function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fas fa-envelope"></i>
+            <FaEnvelope />
             Email
           </a>
       </ContactInfo>
@@ -63,12 +65,21 @@ const ContactInfo = styled.div`
   width: 60%;
   align-items: center;
   justify-content: space-around;
+  text-align: center;
+  padding: 0 20px;
 
   a {
-    padding-left
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
   }
 
-  .fa-github, .fa-envelope, .fa-linkedin {
-    margin-right: 10px;
+  svg {
+    margin-right: 15px;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
   }
 `;
