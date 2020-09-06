@@ -90,6 +90,7 @@ const StyledSlider = styled(Slider)`
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 170px;
   width: 97%;
   height: 60%;
   bottom: 90px;

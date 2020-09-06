@@ -44,7 +44,7 @@ function Projects({ projects }) {
 const ProjectsSection = styled.section`
   position: relative;
   width: 100vw;
-  height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - var(--navbar-height));
   background-color: var(--orangeBG);
   padding: 20px;
 
@@ -52,7 +52,6 @@ const ProjectsSection = styled.section`
     text-decoration: underline;
     text-align: center;
     align-self: center;
-    margin-bottom: 80px;
     font-size: 1.5em;
   }
 `;
