@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Slider from "react-slick";
@@ -44,12 +44,13 @@ const settings = {
   ]
 };
 
-function Arrow({ onClick, icon, currentSlide, direction, lastIndex }) {
+function Arrow({ onClick, className, icon, direction }) {
+  className = className.includes('slick-disabled') ? 'disabled-arrow' : '';
+
   return (
     <SideScrollChevron
-      currentSlide={currentSlide}
+      className={className}
       direction={direction}
-      lastIndex={lastIndex}
       onClick={onClick}
     >
       {icon}
@@ -58,27 +59,21 @@ function Arrow({ onClick, icon, currentSlide, direction, lastIndex }) {
 }
 
 function Carousel({ children }) {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   return (
     <StyledSlider
       {...settings}
       nextArrow={
         <Arrow
           icon={<IoIosArrowForward />}
-          currentSlide={currentSlide}
-          lastIndex={Math.floor(children.length / 2)}
           direction={'next'}
         />
       }
       prevArrow={
         <Arrow
           icon={<IoIosArrowBack />}
-          currentSlide={currentSlide}
           direction={'previous'}
         />
       }
-      afterChange={index => setCurrentSlide(index)}
     >
       {children}
     </StyledSlider>
@@ -93,16 +88,15 @@ const StyledSlider = styled(Slider)`
   top: 180px;
   width: 97%;
   height: 60%;
+
+  .disabled-arrow {
+    opacity: 0.4;
+  }
 `;
 
 const SideScrollChevron = styled.span`
   cursor: pointer;
   font-size: 50px;
-  opacity: ${({ currentSlide, direction, lastIndex }) => {
-    if (direction === 'previous' && currentSlide === 0) return 0.4;
-    else if (direction === 'next' && currentSlide === lastIndex) return 0.4;
-    else return 1;
-  }};
 `;
 
 export default Carousel;
