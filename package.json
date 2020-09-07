@@ -6,7 +6,6 @@
     "npm": "6.14.6"
   },
   "description": "Personal Portfolio Page",
-  "proxy": "http://localhost:4000",
   "scripts": {
     "start": "node index.js",
     "dev-start": "concurrently -p \"[{name}]\" -n \"CLIENT,SERVER\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"yarn run start:client\" \"yarn run start:server\"",
