@@ -90,10 +90,9 @@ const StyledSlider = styled(Slider)`
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 170px;
+  top: 180px;
   width: 97%;
   height: 60%;
-  bottom: 90px;
 `;
 
 const SideScrollChevron = styled.span`

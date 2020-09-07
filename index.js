@@ -9,11 +9,9 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-// const {
-//   handleLogin,
-//   handleNewRoom,
-//   validateRoomMember,
-// } = require('./server/handlers/index');
+const {
+  getProjects,
+} = require('./handlers/index');
 
 app
 .use(function(req, res, next) {
@@ -33,6 +31,8 @@ app
 .use('/', express.static(__dirname + '/'))
 .use(express.static(__dirname))
 .use(express.static(path.join(__dirname, 'build')))
+
+.get('/projects', getProjects)
 
 .get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

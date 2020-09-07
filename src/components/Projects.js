@@ -1,39 +1,45 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import { isContainingData } from '../utils/index';
+
 import Carousel from './Carousel';
 
 import { IoIosArrowDown } from 'react-icons/io';
 
+import { DataContext } from './DataContext';
 import { ScrollHeightContext } from './ScrollHeightContext';
 
-function Projects({ projects }) {
+function Projects() {
+  const { projects } = useContext(DataContext);
   const { projectsSection } = useContext(ScrollHeightContext);
 
   return (
     <ProjectsSection id="projects-section" ref={projectsSection}>
       <h2>My Projects!</h2>
-      <Carousel>
-        {projects.map(project => {
-          const normalizedProjectTitle = project.title.toLowerCase().replace(' ', '');
+      {isContainingData(projects) &&
+        <Carousel>
+          {projects.map(project => {
+            const { _id, title, link, image } = project;
 
-          return (
-            <TileItem key={normalizedProjectTitle}>
-              <a
-                href={project.link}
-                alt={`${project.title} Link`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TileImage src={project.img} alt={`${project.title} thumb`}/>
-                <TitleBox>
-                  <span>{project.title}</span>
-                </TitleBox>
-              </a>
-            </TileItem>
-          )
-        })}
-      </Carousel>
+            return (
+              <TileItem key={_id}>
+                <a
+                  href={link}
+                  alt={`${title} Link`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TileImage src={image} alt={`${title} thumb`}/>
+                  <TitleBox>
+                    <span>{title}</span>
+                  </TitleBox>
+                </a>
+              </TileItem>
+            )
+          })}
+        </Carousel>
+      }
       <a href='#testimonials-section'>
         <ChevronDown />
       </a>
