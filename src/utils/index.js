@@ -10,3 +10,7 @@ export function getViewType() {
 export function isContainingData(array) {
   return array.length > 0;
 }
+
+export function countPages(modelLength, limit) {
+  return Math.ceil(modelLength / limit);
+}

@@ -11,7 +11,8 @@ const app = express();
 
 const {
   getProjects,
-} = require('./handlers/index');
+  getTestimonials,
+} = require('./server/handlers/index');
 
 app
 .use(function(req, res, next) {
@@ -33,6 +34,7 @@ app
 .use(express.static(path.join(__dirname, 'build')))
 
 .get('/projects', getProjects)
+.get('/testimonials', getTestimonials)
 
 .get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

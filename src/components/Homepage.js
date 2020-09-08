@@ -4,12 +4,12 @@ import Projects from './Projects';
 import Testimonials from './Testimonials';
 import Contact from './Contact';
 
-function Homepage({ testimonials }) {
+function Homepage() {
   return (
     <>
       <Welcome />
       <Projects />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials />
       <Contact />
     </>
   )

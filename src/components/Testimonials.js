@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { IoIosArrowDown } from 'react-icons/io';
 
-import { paginate, countPages } from '../utils/paginateModel';
 import Pagination from '@material-ui/lab/Pagination';
 
+import { DataContext } from './DataContext';
 import { ScrollHeightContext } from './ScrollHeightContext';
 
 import { getViewType } from '../utils/index';
@@ -13,11 +13,15 @@ import { TESTIMONIAL_BREAKPOINTS } from '../constants';
 
 const initialPage = 1;
 
-function Testimonials({ testimonials }) {
+function Testimonials() {
+  const {
+    testimonials,
+    limit,
+    setLimit,
+    pagesCount,
+    getTestimonials,
+  } = useContext(DataContext);
   const { testimonialsSection } = useContext(ScrollHeightContext);
-
-  const [paginatedTestimonials, setPaginatedTestimonials] = useState([]);
-  const [limit, setLimit] = useState(0);
 
   const determineResultLimit = () => {
     const viewType = getViewType();
@@ -26,22 +30,15 @@ function Testimonials({ testimonials }) {
     setLimit(newLimit);
   }
 
-  const getTestimonials = page => {
-    return paginate(page, limit, testimonials);
-  }
-
+  // eslint-disable-next-line
   useEffect(() => determineResultLimit(), []);
-  useEffect(() =>
-    setPaginatedTestimonials(getTestimonials(initialPage)),
-    // eslint-disable-next-line
-  [limit, window.innerWidth]);
+  // eslint-disable-next-line
+  useEffect(() => getTestimonials(initialPage, limit), [limit, window.innerWidth]);
 
   const handleNavigation = (_, pageNumber) => {
     window.location.href = '/#testimonials-section';
-    setPaginatedTestimonials(getTestimonials(pageNumber));
+    getTestimonials(pageNumber, limit);
   }
-
-  const pagesCount = countPages(testimonials, limit);
 
   return (
     <TestimonialsSection id="testimonials-section" ref={testimonialsSection}>
@@ -55,23 +52,22 @@ function Testimonials({ testimonials }) {
         <h2>Exercism Testimonials</h2>
       </TestimonialsHead>
       <TestimonialsBody>
-        {paginatedTestimonials.map(testimonial => {
-          const normalizedExerciseName = testimonial.exercise.toLowerCase().replace(' in ', '');
-          const testimonialKey = `${testimonial.user}${normalizedExerciseName}`;
+        {testimonials.map(testimonial => {
+          const { _id, feedback, student, exercise } = testimonial;
 
           return (
             <TestimonialItem
-              key={testimonialKey}
+              key={_id}
               limit={limit}
             >
               <FeedbackItem>
                 <i aria-hidden="true" className="fas fa-quote-left"></i>
-                <span>{testimonial.feedback}</span>
+                <span>{feedback}</span>
               </FeedbackItem>
               <AboutItem>
-                <UserInfo>- {testimonial.user}</UserInfo>
+                <UserInfo>- {student}</UserInfo>
                 <span> on </span>
-                <ExerciseInfo>{testimonial.exercise}</ExerciseInfo>
+                <ExerciseInfo>{exercise}</ExerciseInfo>
               </AboutItem>
             </TestimonialItem>
           )

@@ -12,7 +12,7 @@ import { ScrollHeightContext } from './ScrollHeightContext';
 import { PAGE_DIMENSIONS } from '../constants';
 const { NAVBAR_HEIGHT } = PAGE_DIMENSIONS;
 
-function App({ testimonials }) {
+function App() {
   const {
     scrollHeight,
     projectsSection,
@@ -49,9 +49,7 @@ function App({ testimonials }) {
       )}
       <Switch>
         <Route exact path='/'>
-          <Homepage
-            testimonials={testimonials}
-          />
+          <Homepage />
         </Route>
       </Switch>
     </Router>
