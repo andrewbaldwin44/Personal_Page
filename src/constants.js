@@ -1,5 +1,5 @@
 export const PAGE_DIMENSIONS = {
-  NAVBAR_HEIGHT: 100,
+  NAVBAR_HEIGHT: 80,
 }
 
 export const TESTIMONIAL_BREAKPOINTS = {

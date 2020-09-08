@@ -11,7 +11,7 @@ function NavBar() {
     <Nav>
       <a href='#welcome-section' className='nav-link'>
           <h1>Andrew Baldwin</h1>
-          <h2>Full Stack Web Developer</h2>
+          <h2>Full-Stack Web Developer</h2>
       </a>
       <div className='nav-menu'>
         <GiHamburgerMenu />

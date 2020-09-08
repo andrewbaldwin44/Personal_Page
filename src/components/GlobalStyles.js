@@ -2,12 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   :root{
-    --navbar-height: 100px;
+    --navbar-height: 80px;
     --redBG: #BB0A21;
     --blackBG: #444146;
     --shadow: #212121;
 
-    --section-padding: 45px 20px; 
+    --section-padding: 45px 20px;
   }
 
   @font-face {
