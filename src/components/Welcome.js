@@ -13,7 +13,7 @@ function Welcome() {
           Hi there! <span role='img' aria-label='wave hello'>👋</span>
         </h2>
         <p className='blurb'>
-          I'm Andrew Baldwin, a full stack web developper and graduate of
+          I'm Andrew Baldwin, a full-stack web developer and graduate of
           Concordia University Bootcamps in Montreal, Canada. I am very
           passionate about coding and highly skilled in JavaScript, Ruby,
           and Python. Check out my work using popular web frameworks and
