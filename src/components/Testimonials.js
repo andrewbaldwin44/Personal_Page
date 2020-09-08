@@ -177,7 +177,7 @@ const StyledPagination = styled(Pagination)`
       height: 20px;
       width: 2px;
       padding: 0;
-      margin-right: 25px;
+      margin-right: 29px;
     }
   }
 `;
