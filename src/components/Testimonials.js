@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import useResize from '../hooks/useResize.hook';
 
 import { IoIosArrowDown } from 'react-icons/io';
 
@@ -33,7 +34,8 @@ function Testimonials() {
   // eslint-disable-next-line
   useEffect(() => determineResultLimit(), []);
   // eslint-disable-next-line
-  useEffect(() => getTestimonials(initialPage, limit), [limit, window.innerWidth]);
+  useEffect(() => getTestimonials(initialPage, limit), [limit]);
+  useResize(determineResultLimit);
 
   const handleNavigation = (_, pageNumber) => {
     window.location.href = '/#testimonials-section';
