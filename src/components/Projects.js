@@ -16,7 +16,7 @@ function Projects() {
 
   return (
     <ProjectsSection id="projects-section" ref={projectsSection}>
-      <h2>My Projects</h2>
+      <h2>Projects</h2>
       {isContainingData(projects) &&
         <Carousel>
           {projects.map(project => {
@@ -55,7 +55,6 @@ const ProjectsSection = styled.section`
   padding: var(--section-padding);
 
   h2 {
-    text-decoration: underline;
     text-align: center;
     align-self: center;
     font-size: 1.5em;

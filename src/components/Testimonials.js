@@ -108,7 +108,6 @@ const TestimonialsHead = styled.div`
 
   h2 {
     font-size: 1.5em;
-    text-decoration: underline;
   }
 `;
 
