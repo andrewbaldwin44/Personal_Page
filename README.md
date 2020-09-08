@@ -1,13 +1,15 @@
 # Andrew Baldwin Personal Page
-> My website detailing some of the work I have done!
+
+> My Personal Website Detailing my Work!
+
+## Demo
 
 [View the live Demo](https://andrewbaldwin.herokuapp.com/)
 
-## Description
+## Features
 
-The website in and of itself is a testimony to my skills as a web developer.
-
-Included are sections on my projects, testimonials from students, and contact information.
+1. Sections detailing my projects, testimonials from students, and contact information.
+2. Fully responsive web design. Enjoy on any device!
 
 ### Deploy the project
 
@@ -28,9 +30,18 @@ The page will reload if you make edits.
 
 ### Technologies Used
 
-__Frontend__:
+__Front-End__:
 
-- React
+- JavaScript
+- React.js
+- Slick Slider
+- Material-UI
+
+__Back-End__:
+
+- Node.js
+- Express
+- MongoDB
 
 ## Author
 
