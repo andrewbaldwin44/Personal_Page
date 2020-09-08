@@ -85,7 +85,7 @@ const StyledSlider = styled(Slider)`
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 180px;
+  top: 200px;
   width: 97%;
   height: 60%;
 

@@ -32,7 +32,7 @@ function Contact() {
           </a>
           <a
             alt="Email link"
-            href="mailto:andrew.baldwin44@protonmail.com"
+            href="mailto:andrew.baldwin44@outlook.com"
             target="_blank"
             rel="noopener noreferrer"
           >
