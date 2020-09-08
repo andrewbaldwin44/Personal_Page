@@ -5,8 +5,9 @@ export default createGlobalStyle`
     --navbar-height: 100px;
     --redBG: #BB0A21;
     --blackBG: #444146;
-    --orangeBG: #E89005;
-    --shadow: #6D545D;
+    --shadow: #212121;
+
+    --section-padding: 45px 20px; 
   }
 
   @font-face {
@@ -34,7 +35,7 @@ export default createGlobalStyle`
   input, button, select, option,
   h1, h2, h3, h4, h5, h6, p,
   text {
-    font-family: 'Oswald', sans-serif;;
+    font-family: 'Roboto', sans-serif;
   }
   html, body {
     max-width: 100vw;
@@ -79,11 +80,9 @@ export default createGlobalStyle`
   }
 
   body {
-    font-size: 26px;
-    color: white;
-    background: var(--blackBG);
-    line-height: 1.2;
-    text-shadow: 2px 2px 8px black;
+    font-size: 20px;
+    color: black;
+    background-color: white;
     width: 100vw;
     overflow-x: hidden;
   }
@@ -92,9 +91,5 @@ export default createGlobalStyle`
     color: white;
     text-decoration: none;
     cursor: pointer;
-    transition: 0.5s;
-  }
-  a:hover {
-    text-shadow: 5px 5px 8px black;
   }
 `;

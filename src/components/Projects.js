@@ -16,7 +16,7 @@ function Projects() {
 
   return (
     <ProjectsSection id="projects-section" ref={projectsSection}>
-      <h2>My Projects!</h2>
+      <h2>My Projects</h2>
       {isContainingData(projects) &&
         <Carousel>
           {projects.map(project => {
@@ -51,14 +51,15 @@ const ProjectsSection = styled.section`
   position: relative;
   width: 100vw;
   min-height: calc(100vh - var(--navbar-height));
-  background-color: var(--orangeBG);
-  padding: 20px;
+  background-color: var(--blackBG);
+  padding: var(--section-padding);
 
   h2 {
     text-decoration: underline;
     text-align: center;
     align-self: center;
     font-size: 1.5em;
+    color: white;
   }
 `;
 
@@ -92,7 +93,7 @@ const TitleBox = styled.div`
   align-items: center;
   justify-content: center;
   height: 110px;
-  background-color: var(--blackBG);
+  background-color: #B75D69;
 `;
 
 const ChevronDown = styled(IoIosArrowDown)`

@@ -54,9 +54,12 @@ const ContactSection = styled.section`
   width: 100%;
   height: calc(100vh - var(--navbar-height));
   font-size: 2.2rem;
+  background-color: var(--blackBG);
+  text-shadow: 2px 2px 8px var(--shadow);
 
   h3 {
     font-style: italic;
+    color: white;
   }
 `;
 

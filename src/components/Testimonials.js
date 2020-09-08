@@ -44,14 +44,8 @@ function Testimonials() {
 
   return (
     <TestimonialsSection id="testimonials-section" ref={testimonialsSection}>
-      <TestimonialsHead
-        href='https://exercism.io/about'
-        target='_blank'
-        alt='Exercism website'
-        rel='noopener noreferrer'
-      >
-        <img src="assets/images/exercism.png" alt="Exercism logo"/>
-        <h2>Exercism Testimonials</h2>
+      <TestimonialsHead>
+        <h2>Mentorship Testimonials</h2>
       </TestimonialsHead>
       <TestimonialsBody>
         {testimonials.map(testimonial => {
@@ -103,32 +97,18 @@ const TestimonialsSection = styled.section`
   color: black;
   height: calc(100vh - var(--navbar-height));
   width: 100%;
-  padding: 20px;
+  padding: var(--section-padding);
   background-color: white;
 `;
 
-const TestimonialsHead = styled.a`
+const TestimonialsHead = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
-  color: black;
-
-  &:hover {
-    text-shadow: none;
-  }
-
-  img {
-    height: auto;
-    width: 70px;
-    min-width: 70px;
-    padding-right: 20px;
-  }
 
   h2 {
-    font-family: 'Linotte Heavy';
-    font-size: 1.8em;
-    padding-top: 7px;
+    font-size: 1.5em;
+    text-decoration: underline;
   }
 `;
 

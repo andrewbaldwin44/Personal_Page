@@ -13,12 +13,16 @@ function Welcome() {
           Hi there! <span role='img' aria-label='wave hello'>👋</span>
         </h2>
         <p className='blurb'>
-          I'm Andrew Baldwin, a full-stack web developer and graduate of
-          Concordia University Bootcamps in Montreal, Canada. I am very
-          passionate about coding and highly skilled in JavaScript, Ruby,
-          and Python. Check out my work using popular web frameworks and
-          libraries including React.js, Redux.js, Node.js, Rails, Django,
-          and so much more!
+          <span>
+            I'm Andrew Baldwin, a full-stack web developer and graduate of
+            Concordia University Bootcamps in Montreal, Canada.
+          </span>
+          <span>
+            I am very passionate about coding and love to code in JavaScript,
+            Ruby, and Python. Check out my work using popular web frameworks and
+            libraries including React.js, Redux.js, Node.js, Ruby on Rails, Django,
+            and so much more!
+          </span>
         </p>
       </TextContent>
       <ProfileImage src={Profile} alt='Profile' className='profile-picture' />
@@ -78,7 +82,7 @@ const TextContent = styled.div`
 
   h2 {
     margin: 40px 0;
-    font-size: 2em;
+    font-size: 1.4em;
     animation-name: ${welcomeFadeIn};
     animation-duration: 4s;
   }
@@ -90,6 +94,11 @@ const TextContent = styled.div`
     text-align: justify;
     animation-name: introFadeIn;
     animation-duration: 4s;
+
+    span {
+      display: block;
+      margin-bottom: 10px;
+    }
   }
 
   @keyframes introFadeIn {
@@ -108,7 +117,7 @@ const ProfileImage = styled.img`
   height: 75%;
   width: auto;
   margin-right: 8%;
-  box-shadow: 0px 5px 15px #212121;
+  box-shadow: 0px 5px 15px var(--shadow);
   animation-name: ${welcomeFadeIn};
   animation-duration: 4s;
 `;
@@ -118,6 +127,7 @@ const ChevronDown = styled(IoIosArrowDown)`
   font-size: 2.4em;
   bottom: 20px;
   left: 50%;
+  color: black;
   transform: translateX(-50%);
   animation-name: buttonFadeIn;
   animation-duration: 4s;

@@ -97,6 +97,7 @@ const StyledSlider = styled(Slider)`
 const SideScrollChevron = styled.span`
   cursor: pointer;
   font-size: 50px;
+  color: white;
 `;
 
 export default Carousel;
