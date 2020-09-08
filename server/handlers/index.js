@@ -55,7 +55,7 @@ async function getTestimonials(req, res) {
                                        .limit(limit)
                                        .toArray();
 
-    const testimonialsAmount =  await database.collection('testimonials').count();
+    const testimonialsAmount =  await database.collection('testimonials').countDocuments();
 
     res.status(200).json({ status: 200, testimonials, testimonialsAmount });
   }
