@@ -50,7 +50,7 @@ async function getTestimonials(req, res) {
 
     const testimonials = await database.collection('testimonials')
                                        .find()
-                                       .sort({ timestamp: 1 })
+                                       .sort({ timestamp: -1 })
                                        .skip(startIndex)
                                        .limit(limit)
                                        .toArray();
