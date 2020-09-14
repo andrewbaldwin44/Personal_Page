@@ -22,13 +22,13 @@ function Contact() {
             Github
           </a>
           <a
-            alt="Linked-in link"
+            alt="LinkedIn link"
             href="https://www.linkedin.com/in/andrew-baldwin44/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaLinkedin />
-            Linked In
+            LinkedIn
           </a>
           <a
             alt="Email link"
