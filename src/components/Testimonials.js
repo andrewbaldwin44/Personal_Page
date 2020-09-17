@@ -138,6 +138,12 @@ const FeedbackItem = styled.div`
     margin-right: 10px;
     color: #666;
   }
+
+  span {
+    max-height: 100px;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
 `;
 
 const AboutItem = styled.div`
